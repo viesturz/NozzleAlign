@@ -1,6 +1,9 @@
 # NozzleAlign Probe
 A stationary probe to align multiple tools. And Tap probe offset.
 
+![Preview](/images/outsides.jpg)
+
+
 ## BOM
 * MGN7h rail and carriage. Cut the rail down to 34mm.
 * A piece of spring, 8-9mm dia
