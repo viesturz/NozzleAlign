@@ -1,5 +1,6 @@
 # NozzleAlign Probe
 A stationary probe to align multiple tools. And Tap probe offset.
+So far has been very reliable, <0.01 mm drift.
 
 ![Preview](/images/outsides.jpg)
 
