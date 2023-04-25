@@ -2,6 +2,7 @@
 A stationary probe to align multiple tools. And Tap probe offset.
 So far has been very reliable, <0.01 mm drift.
 
+[Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
 ![Preview](/images/outsides.jpg)
 ![Preview](/images/insides.jpg)
 
