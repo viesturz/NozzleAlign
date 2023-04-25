@@ -4,7 +4,6 @@ So far has been very reliable, <0.01 mm drift.
 
 [Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
 ![Preview](/images/outsides.jpg)
-![Preview](/images/insides.jpg)
 
 ## Commands
 
@@ -39,4 +38,8 @@ lower_z: 0.7
 * 6x M2x8 bolts and nuts.
 * 4x M2x12 self tapping screws to close it up.
 * ~5mmx10mm self tapping countersunk screw for the base, I found a [Ikea drawer rail scew](https://www.google.com/search?q=ikea+drawer+rail+screw) in my randoms bin.
+
+## Assembly
+
+![Preview](/images/insides.jpg)
 
