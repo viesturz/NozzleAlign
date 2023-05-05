@@ -88,9 +88,9 @@ class ToolsCalibrate:
             gcmd.error("No recorded sensor location, please run TOOL_LOCATE_SENSOR first")
             return
         location = self.locate_sensor(gcmd)
+        self.last_result=[location[i]-self.sensor_location[i] for i in range(3)]
         self.gcode.respond_info("Tool offset is %.6f,%.6f,%.6f"
                                 % (self.last_result[0], self.last_result[1], self.last_result[2]))
-        self.last_result=[location[i]-self.sensor_location[i] for i in range(3)]
 
     cmd_TOOL_CALIBRATE_PROBE_OFFSET_help = "Calibrate the tool probe offset to nozzle tip"
     def cmd_TOOL_CALIBRATE_PROBE_OFFSET(self, gcmd):
