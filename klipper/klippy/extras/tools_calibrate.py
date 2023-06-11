@@ -96,6 +96,10 @@ class ToolsCalibrate:
         self.last_result=[location[i]-self.sensor_location[i] for i in range(3)]
         self.gcode.respond_info("Tool offset is %.6f,%.6f,%.6f"
                                 % (self.last_result[0], self.last_result[1], self.last_result[2]))
+        tool_name = gcmd.get("TOOL", default=None)
+        if tool_name:
+            configfile = self.printer.lookup_object('configfile')
+            configfile.set(tool_name, 'offset', "%.6f, %.6f, %.6f" % (self.last_result[0], self.last_result[1], self.last_result[2]))
 
     cmd_TOOL_CALIBRATE_PROBE_OFFSET_help = "Calibrate the tool probe offset to nozzle tip"
     def cmd_TOOL_CALIBRATE_PROBE_OFFSET(self, gcmd):
@@ -111,8 +115,10 @@ class ToolsCalibrate:
             "%s: z_offset: %.3f\n"
             "The SAVE_CONFIG command will update the printer config file\n"
             "with the above and restart the printer." % (self.probe.name, z_offset))
-        configfile = self.printer.lookup_object('configfile')
-        configfile.set(self.probe.name, 'z_offset', "%.3f" % (z_offset,))
+        config_name = gcmd.get("PROBE", default=self.probe.name)
+        if config_name:
+            configfile = self.printer.lookup_object('configfile')
+            configfile.set(config_name, 'z_offset', "%.6f" % (z_offset,))
         # back to start pos
         toolhead.move(start_pos, self.travel_speed)
         toolhead.set_position(start_pos)
