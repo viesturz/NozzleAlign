@@ -60,6 +60,7 @@ class ToolsCalibrate:
 
     def locate_sensor(self, gcmd):
         toolhead = self.printer.lookup_object('toolhead')
+        position = toolhead.get_position()
         downPos = self.probe_multi_axis.run_probe("z-", gcmd)
         center_x, center_y = self.calibrate_xy(toolhead, downPos, gcmd)
 
@@ -70,10 +71,12 @@ class ToolsCalibrate:
         center_x, center_y = self.calibrate_xy(toolhead, [center_x, center_y, center_z], gcmd)
 
         # rest above center
-        final_pos = [center_x, center_y, center_z+self.final_lift_z]
-        toolhead.manual_move([None, None, final_pos[2]], self.lift_speed)
-        toolhead.manual_move([final_pos[0], final_pos[1], None], self.travel_speed)
-        toolhead.set_position(final_pos)
+        position[0] = center_x
+        position[1] = center_y
+        position[2] = center_z+self.final_lift_z
+        toolhead.manual_move([None, None, position[2]], self.lift_speed)
+        toolhead.manual_move([position[0], position[1], None], self.travel_speed)
+        toolhead.set_position(position)
         return [center_x, center_y, center_z]
 
     cmd_TOOL_LOCATE_SENSOR_help = ("Locate the tool calibration sensor, "
