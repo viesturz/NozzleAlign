@@ -27,6 +27,7 @@ class ToolsCalibrate:
         self.spread = config.getfloat('spread', 5.0)
         self.lower_z = config.getfloat('lower_z', 0.5)
         self.lift_z = config.getfloat('lift_z', 1.0)
+        self.trigger_to_bottom_z = config.getfloat('trigger_to_bottom_z', default=0.0)
         self.lift_speed = config.getfloat('lift_speed', self.probe_multi_axis.lift_speed)
         self.final_lift_z = config.getfloat('final_lift_z', 4.0)
         self.sensor_location = None
@@ -109,7 +110,7 @@ class ToolsCalibrate:
         # now move down with the tool probe
         probe_z = self.probe.run_probe(gcmd)[2]
 
-        z_offset = probe_z - nozzle_z
+        z_offset = probe_z - nozzle_z + self.trigger_to_bottom_z
         self.last_probe_offset = z_offset
         self.gcode.respond_info(
             "%s: z_offset: %.3f\n"
