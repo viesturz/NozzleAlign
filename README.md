@@ -13,23 +13,7 @@ So far has been very reliable, repeatable to ~0.01 mm.
 
 ## Config example
 
-```
-[probe_multi_axis]
-pin: ^!PF5
-speed: 2
-lift_speed: 4
-
-samples:3
-sample_retract_dist:2
-samples_tolerance:0.1
-samples_tolerance_retries:2
-samples_result:average
-
-[tools_calibrate]
-travel_speed: 20
-spread: 7
-lower_z: 0.7
-```
+See [macros](/macros/calibrate-offsets.cfg)
 
 ## BOM
 * MGN7h rail and carriage. Cut the rail down to 34mm.
