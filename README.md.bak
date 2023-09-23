@@ -2,7 +2,7 @@
 A stationary probe to align multiple tools. And Tap probe offset.
 So far has been very reliable, repeatable to ~0.02 mm.
 
-For a rigidly mounted version, check out [ball probe](./BallProbe.md).
+For a bed-mounted version, check out [ball probe](./BallProbe.md).
 
 [Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
 ![Preview](/images/outsides.jpg)
