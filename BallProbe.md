@@ -2,7 +2,7 @@
 
 A rigidly mountable nozzle calibration probe using bearing balls. Accuracy is no worse than the linear rail probe.
 
-Currently using 12.7mm balls, will add 10mm balls option once I get some shipped.
+Two versions for 12.7mm and 10mm balls available.
 
 ![Preview](/images/balls-mounted.jpg)
 
