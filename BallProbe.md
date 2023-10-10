@@ -7,7 +7,7 @@ Two versions for 12.7mm and 10mm balls available.
 ![Preview](/images/balls-mounted.jpg)
 
 ## BOM
-* 2x steel ball, ~ 12.7 mm
+* 2x steel ball, 10.0 or 12.7 mm
 * a ~20mm piece of 0.1mmx6mm springsteel, ripped mine out of 1m tape measure.
 * 3x 9mm x 3mm steel rod
 * 1x 6mm x 3mm screw for adjustment
