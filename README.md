@@ -65,7 +65,7 @@ All probing moves and final offsets will be printed in the console.
 
 - **Probe triggered prior to movement**, the nozzle is not touching the probe
   - Check if the probe is triggering without touching - use a multimiter to check for continuity and if it changes when pressing down on the probe.
-  - Check if the pin is configured correctly. The example configuration is for active low with a pullup. Depending how you have wired it, you might need remove the **!** for active-high.
+  - Check if the pin is configured correctly. The example configuration is for active low with a pullup. Depending how you have wired it, you might need remove the **^!** for active-high.
 - **Probe triggered prior to movement**, the nozzle is touching the probe, could have probed a few times already
   - Likely the initial position was too far off-center. Try to position it more accurately.
   - The probe is lowered too much and/or not enough sideways - tweak ```lower_z``` and ```spread```
