@@ -1,32 +1,61 @@
 # NozzleAlign Probe
-A stationary probe to align multiple tools. And Tap probe offset.
-So far has been very reliable, repeatable to ~0.02 mm.
+A mechanical nozzle probe to align multiple tools. And Nozzle probe offset.
+Repeatable to ~0.01 mm.
 
-For a rigidly mounted version, check out [ball probe](./BallProbe.md).
+| **[Ball probe](./BallProbe.md)**  | **[Rail probe](./RailProbe.md)** |
+| ------------- | ------------- |
+| ![Ball probe](/images/ball-probe.jpg)  | ![Ball probe](/images/rail-probe.jpg) |
 
-[Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
-![Preview](/images/outsides.jpg)
+## Klipper integration
 
-## Commands
+### Installing
 
-* TOOL_LOCATE_SENSOR - calibrate sensor location for tool 0
-* TOOL_CALIBRATE_TOOL_OFFSET - measure tool offset versus calibrated, use for tools 1...n
-* TOOL_CALIBRATE_PROBE_OFFSET - measure offset from nozzle touching the probe to tool's nozzle probe activating. For direct nozzle probes, like Tap.
+Copy the files in klipper folder to your ~/klipper folder on the Pi.
 
-## Config example
+### Configuration
 
-See [macros](/macros/calibrate-offsets.cfg)
+See the macros folder for an example.
 
-## BOM
-* MGN7h rail and carriage. Cut the rail down to 34mm.
-* A threaded steel ball with m3 thread, salvaged mine from a delta printer.  There is plenty on [AliExprees](https://www.aliexpress.com/w/wholesale-steel-ball--thread.html).
-* a D2F microswitch - same as Voron 0 BOM.
-* 6x M2x8 bolts and nuts.
-* 4x M2x12 self tapping screws to close it up.
-* ~5mmx10mm self tapping countersunk screw for the base, I found a [Ikea drawer rail scew](https://www.google.com/search?q=ikea+drawer+rail+screw) in my randoms bin.
-* 2x M2 heat set inserts, or mod for nuts
+```
+[tools_calibrate]
+pin: ^!PF5
+travel_speed: 20  # mms to travel sideways for XY probing
+spread: 7  # mms to travel down from top for XY probing
+lower_z: 1.0  # The speed (in mm/sec) to move tools down onto the probe
+speed: 2  # The speed (in mm/sec) to retract between probes
+lift_speed: 4  # Z Lift after probing done, should be greater than any Z variance between tools
+final_lift_z: 6 
+sample_retract_dist:2
+samples_tolerance:0.05
+samples:5
+samples_result: median # median, average
 
-## Assembly
+# Settings for nozzle probe calibration - optional.
+probe: probe # name of the nozzle probe to use
 
-![Preview](/images/insides.jpg)
+trigger_to_bottom_z: 0.25 # Offset from probe trigger to vertical motion bottoms out. 
+# decrease if the nozzle is too high, increase if too low.
+```
 
+### Clean your nozzles 
+
+The calibration accuracy is as good as your nozzles are clean. 
+Clean all nozzles throughly before calibrating.
+
+### Calibrating tool offsets
+
+- First position the nozzle approximately above the probe - the probe will find the center on it's own within 1-2 mm.
+
+- The first tool has all offsets to 0 and is used as a baseline for other tools. Run ```TOOL_LOCATE_SENSOR``` to calibrate nozzle location for tool 0.
+
+- For every other tool, run ```TOOL_CALIBRATE_TOOL_OFFSET``` to measure the offset from the first tool.
+
+All probing moves and final offsets will be printed in the console.
+
+### Calibrating nozzle bed probe.
+
+- Do the first two steps from above to ensure the probe is precisely under the nozzle.
+
+- Run TOOL_CALIBRATE_PROBE_OFFSET - to measure Z offset from nozzle triggering the probe to tool's nozzle probe activating.
+
+All probing moves and final offsets will be printed in the console.

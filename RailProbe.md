@@ -1,21 +1,10 @@
-# NozzleAlign Probe
-A stationary probe to align multiple tools. And Tap probe offset.
-So far has been very reliable, repeatable to ~0.02 mm.
+# Rail brobe
 
-For a bed-mounted version, check out [ball probe](./BallProbe.md).
+Uses a linar rail for the vertical motion.
 
-[Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
 ![Preview](/images/outsides.jpg)
 
-## Commands
-
-* TOOL_LOCATE_SENSOR - calibrate sensor location for tool 0
-* TOOL_CALIBRATE_TOOL_OFFSET - measure tool offset versus calibrated, use for tools 1...n
-* TOOL_CALIBRATE_PROBE_OFFSET - measure offset from nozzle touching the probe to tool's nozzle probe activating. For direct nozzle probes, like Tap.
-
-## Config example
-
-See [macros](/macros/calibrate-offsets.cfg)
+[Video](https://www.youtube.com/watch?v=_GQEc5kIMZE)
 
 ## BOM
 * MGN7h rail and carriage. Cut the rail down to 34mm.
