@@ -25,7 +25,7 @@ Two versions for 12.7mm and 10mm balls available.
 - Insert the springsteel into it's slot, curving up, it should clear the bottom ball.
 - Insert the rods
 - Push down the second ball, it should be loose between the rods and be held in by the small bumps at the top
-- Make sure the top ball is moving down when pressed and remounces back
+- Make sure the top ball is moving down when pressed and rebounces back
 - Tighten the adjustment screw to remove as much slack as possible. Some slack is fine.
 
 ![Preview](/images/balls-parts.jpg)

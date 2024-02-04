@@ -2,9 +2,9 @@
 A mechanical nozzle probe to align multiple tools. And Nozzle probe offset.
 Repeatable to ~0.01 mm.
 
-| **[Ball probe](./BallProbe.md)**  | **[Rail probe](./RailProbe.md)** |
+| **[Ball probe](./BallProbe.md)** | **[Low profile ball proble]((./LowProfileBallProble.md)** | **[Rail probe](./RailProbe.md)** |
 | ------------- | ------------- |
-| ![Ball probe](/images/ball-probe.jpg)  | ![Ball probe](/images/rail-probe.jpg) |
+| ![Ball probe](/images/ball-probe.jpg)| | ![Low profile Ball probe](/images/ball-lowprofile.jpg) | ![Ball probe](/images/rail-probe.jpg) |
 
 ## Klipper integration
 
