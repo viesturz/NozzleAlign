@@ -10,7 +10,7 @@ Repeatable to ~0.01 mm.
 
 ### Installing
 
-Copy the files in klipper folder to your ~/klipper folder on the Pi.
+Install the [klipper-toolchanger](https://github.com/viesturz/klipper-toolchanger) extension.
 
 ### Configuration
 
